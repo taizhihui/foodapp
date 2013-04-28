@@ -1,9 +1,9 @@
 class DropMenuItemsTable < ActiveRecord::Migration
-  def up
+  def self.up
   	drop_table :menu_items
   end
 
-  def down
+  def self.down
   	raise ActiveRecord::IrreversibleMigration
   end
 end
