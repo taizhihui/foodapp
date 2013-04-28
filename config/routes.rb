@@ -1,7 +1,24 @@
 FoodApp::Application.routes.draw do
-  resources :restaurants
+  
+  get "orders/index"
 
+  get "orders/create"
 
+  get "orders/new"
+
+  get "items/create"
+
+  resources :restaurants do
+    resources :items
+  end
+
+  resources :restaurants do
+    resources :orders
+  end
+
+  resources :orders
+
+  resources :order
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

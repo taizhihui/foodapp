@@ -1,0 +1,20 @@
+
+	<p>
+		<b>Name:</b>
+		<%= item.name %>
+	</p>
+
+	<p>
+		<b>Description</b>
+		<%= item.description %>
+	</p>
+
+	<p>
+		<%= link_to 'Delete', [item.restaurant, item],
+				:confirm => "Are you sure?",
+				:method => :delete %>
+	</p>
+
+	<p>
+		<%= link_to 'Edit', edit_restaurant_item_path(item.restaurant, item) %> 
+	</p>

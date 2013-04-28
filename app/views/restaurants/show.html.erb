@@ -5,6 +5,12 @@
   <%= @restaurant.name %>
 </p>
 
+<h2>Items</h2>
+<%= render @restaurant.items %>
+
+
+<h2> Add new item </h2>
+<%= render 'items/form' %>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

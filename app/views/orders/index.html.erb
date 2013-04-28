@@ -1,0 +1,24 @@
+<h1>Listing orders</h1>
+
+<table>
+  <tr>
+    <th>Order Id</th>
+    <th>Restaurant</th>
+    <th>Order Date</th>
+    <th></th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.id %></td>
+    <td><%= order.restaurant.name %></td>
+    <td><%= order.created_at.strftime('%A, %e %B %Y') %></td>
+    <td><%= link_to 'Show', order %></td>
+    <td><%= link_to 'Delete', order, method: :delete, data: {confirm: 'Are you sure?' } %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "New Order Form", orders_new_path %>
+<br />
