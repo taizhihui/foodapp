@@ -1,0 +1,20 @@
+<h2>Restaurant: <%= @restaurant.name %></h2>
+<div>
+You've ordered:
+</div>
+
+<table>
+  <tr>
+    <th>Order Item</th>
+    <th>Request</th>
+    <th></th>
+  </tr>
+
+  <tr>
+    <td><%= @order_item.item.name%></td>
+    <td><%= @order_item.notes%></td>
+    
+    
+  </tr>
+</table>
+<%= link_to 'Edit', edit_restaurant_order_order_item_path(@restaurant, @order_item.order, @order_item) %>

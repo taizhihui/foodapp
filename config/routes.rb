@@ -1,24 +1,23 @@
 FoodApp::Application.routes.draw do
+
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "sign_up" => "users#new", :as => "sign_up"
   
-  get "orders/index"
+  root :to => "users#new"
+  
+  resources :users
+  resources :sessions
 
-  get "orders/create"
-
-  get "orders/new"
-
-  get "items/create"
 
   resources :restaurants do
     resources :items
+    resources :orders do
+      resources :order_items
+    end
   end
 
-  resources :restaurants do
-    resources :orders
-  end
 
-  resources :orders
-
-  resources :order
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

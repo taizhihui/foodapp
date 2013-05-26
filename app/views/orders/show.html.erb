@@ -1,1 +1,20 @@
-Show detailed orders of a particular Order form here
+<h1> Order Sheet <%= @order.id %> for <%= @restaurant.name %> </h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Order Item</th>
+    <th>Request</th>
+  </tr>
+
+<% @order.order_items.each do |item| %>
+  <tr>
+    <td><%= item.user.name %></td>
+    <td><%= item.item.name%></td>
+    <td><%= item.notes%></td>
+    
+    
+  </tr>
+<% end %>
+</table>
+

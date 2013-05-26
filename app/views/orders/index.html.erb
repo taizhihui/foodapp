@@ -1,4 +1,4 @@
-<h1>Listing orders</h1>
+<h1>Order Sheets for <%= @restaurant.name %></h1>
 
 <table>
   <tr>
@@ -8,17 +8,17 @@
     <th></th>
   </tr>
 
-<% @orders.each do |order| %>
+<% @restaurant.orders.each do |order| %>
   <tr>
     <td><%= order.id %></td>
     <td><%= order.restaurant.name %></td>
     <td><%= order.created_at.strftime('%A, %e %B %Y') %></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Delete', order, method: :delete, data: {confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', restaurant_order_path(@restaurant, order) %></td>
+    <td><%= link_to 'Delete', @restaurant_order, method: :delete, data: {confirm: 'Are you sure?' } %></td>
     
   </tr>
 <% end %>
 </table>
 
-<%= link_to "New Order Form", orders_new_path %>
+<%= link_to "New Order Form", @restaurant_order_new_path %>
 <br />

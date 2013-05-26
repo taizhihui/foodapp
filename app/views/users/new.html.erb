@@ -1,0 +1,38 @@
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+	<% if @user.errors.any? %>
+		<div class = "error_messages">
+			<h2>Form is invalid</h2>
+			<ul>
+				<% for message in @user.errors.full_messages %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<p>
+		<%= f.label :name %><br/>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.label :email %><br/>
+		<%= f.text_field :email %>
+	</p>
+	
+	<p class="button"><%= f.submit %></p>
+<% end %>
+
+<h1>I AM</h1>
+
+<%= form_tag sessions_path do %>
+	<p>
+		<%= form_tag sessions_path do %>
+			<%= select_tag :id, options_for_select(user_all_select_options), :prompt => 'Select name' %>
+			<p class="button"><%= submit_tag "Sign In" %></p>
+		<% end %>
+	</p>
+	
+<% end %>
