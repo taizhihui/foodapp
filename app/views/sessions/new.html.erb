@@ -1,11 +1,20 @@
-<h1>I AM</h1>
+<body <%= (params[:controller] == 'sessions' && params[:action] == 'new') ? 'id=background' : '' %>>
+	<div class = "row-fluid">
+		<div class = "span8">
+			<div class = "well login_box" style ="background-color: transparent; 	border-width:0px;">
+				<div class='clearfix login_text'>
+					<%= form_tag sessions_path do %>
+						<label class="font_sign_in pull-left"> I   Am 
+							<%= select_tag :id, options_for_select(user_all_select_options), :prompt => 'Select name', :style => "margin-left:20px" %>
+							
+						</label>
+						<%= submit_tag "Sign In", :class => "btn btn-inverse pull-right" %>
+					<% end %>
+				</div>
 
-<%= form_tag sessions_path do %>
-	<p>
-		<%= form_tag sessions_path do %>
-			<%= select_tag :id, options_for_select(user_all_select_options), :prompt => 'Select name' %>
-			<p class="button"><%= submit_tag "Sign In" %></p>
-		<% end %>
-	</p>
-	
-<% end %>
+				<div style="margin-left:220px; margin-top:20px"><%= link_to 'New Here?', sign_up_path %></div>
+
+			</div>
+		</div>
+	</div>
+</body>

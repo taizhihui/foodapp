@@ -1,24 +1,26 @@
 <%= form_for [@restaurant, @order, @order_item] do |i| %>
 	<% @restaurant.items.each do |item| %>
 		<div class = "field">
-			<%= i.radio_button :item_id, item.id %>
-			<%= label_tag(:order_item, item.name) %>
-			
+			<label class='radio'>
+				<%= i.radio_button :item_id, item.id %>
+				<%= item.name %>
+			</label>
+
 			<div class = "field">
 				<%= item.description %>
 			</div>
 		</div>
 	<% end %>
 
-	<div class = "field">
-		<%= i.label :notes, "Before I Forget.." %>
+	<div class = "field" style = "margin-top:30px">
+		<%= i.label :notes, "Any Request?" %>
 	</div>
 
 	<div class = "field">
-		<%= i.text_area :notes, :size => "50x8" %>
+		<%= i.text_area :notes, :size => "70x8" %>
 	</div>
 	
 	<div class="actions">
-  	<%= i.submit %>
+  	<%= i.submit "Update", class: 'btn btn-primary' %>
 	</div>
 <% end %>

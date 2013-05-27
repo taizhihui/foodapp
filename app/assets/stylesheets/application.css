@@ -11,3 +11,31 @@
  *= require_self
  *= require_tree .
  */
+.login_box{
+	width: 500px;
+	height: 100px;
+	margin-left: 350px;
+	margin-top: 80px;
+}
+
+.sign_up_box{
+	width: 500px;
+	height: 100px;
+	margin-left: 400px;
+	margin-top: 30px;
+}
+
+.login_text{
+	margin-top:20px;
+	margin-left:60px;
+}
+
+.font_sign_in{
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#background {
+	background: url(/assets/fruits.jpg) left top no-repeat fixed;
+	background-size: 100% auto;
+}

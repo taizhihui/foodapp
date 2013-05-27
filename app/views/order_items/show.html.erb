@@ -1,20 +1,15 @@
-<h2>Restaurant: <%= @restaurant.name %></h2>
-<div>
-You've ordered:
+
+	<h2>Next Lunch From: <%= @restaurant.name %></h2>
+		<div>Your Order: <%= @order_item.item.name%></div>
+
+			<div>	Additional notes: 
+				<% if @order_item.notes.empty? %>
+					none
+				<% else %>
+					<%= @order_item.notes%>
+				<% end %>
+			</div>
+    
+<div style="margin-top:50px">
+<%= link_to 'Edit', edit_restaurant_order_order_item_path(@restaurant, @order_item.order, @order_item), class: "btn btn-primary" %>
 </div>
-
-<table>
-  <tr>
-    <th>Order Item</th>
-    <th>Request</th>
-    <th></th>
-  </tr>
-
-  <tr>
-    <td><%= @order_item.item.name%></td>
-    <td><%= @order_item.notes%></td>
-    
-    
-  </tr>
-</table>
-<%= link_to 'Edit', edit_restaurant_order_order_item_path(@restaurant, @order_item.order, @order_item) %>
