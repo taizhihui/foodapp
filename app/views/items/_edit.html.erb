@@ -1,13 +1,13 @@
 <%= form_for([@item.restaurant, @item]) do |f| %>
 	<div class="field">
-		<%= f.label :name %><br/>
+		<%= f.label :name %>
 		<%= f.text_field :name, :size => "70" %>
 	</div>
 	<div class="field">
-		<%= f.label :description %><br/>
+		<%= f.label :description %>
 		<%= f.text_area :description, :size => "50x8" %>
 	</div>
 	<div class="actions">
-		<%= f.submit %>
+		<%= f.submit  %>
 	<div>
 <% end %>

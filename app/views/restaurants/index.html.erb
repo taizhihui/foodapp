@@ -1,24 +1,30 @@
-<h1>Listing restaurants</h1>
+<h2>Restaurants</h2>
 
-<table>
+<table class = "table table-hover">
   <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Name of Restaurant</th>
+    <th>Last Order Date</th>
+    <th>#Orders</th>
+    <th>Order Form</th>
   </tr>
 
 <% @restaurants.each do |restaurant| %>
   <tr>
     <td><%= restaurant.name %></td>
-    <td><%= link_to "New Order Form", restaurant_orders_path(restaurant), :method => :post %></td>
-    <td><%= link_to 'Show', restaurant %></td>
-    <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-    <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if restaurant.orders.empty? %>
+     <td> 0 </td>
+    <% else %>
+    <td><%= restaurant.orders.last.created_at.strftime("%b %d, %Y") %></td>
+    <% end %>
+    <td><%= restaurant.orders.count %></td>
+    <td><%= link_to 'Create', restaurant_orders_path(restaurant), :method => :post, :class => "btn btn-success" %></td>
+    <td><%= link_to 'Show', restaurant, :class => "btn btn-info" %></td>
+    <td><%= link_to 'Edit', edit_restaurant_path(restaurant), :class => "btn btn-warning" %></td>
+    <td><%= link_to 'Delete', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<%= link_to 'Add New Restaurant', new_restaurant_path, :class => "btn btn-primary" %>

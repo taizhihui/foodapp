@@ -1,16 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @restaurant.name %>
-</p>
+<h2 class="pull-left"><%= @restaurant.name %></h2>
 
-<h2>Items</h2>
-<%= render @restaurant.items %>
+<table class = "table table-hover">
+  <tr>
+    <th>Food</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
 
+<% @restaurant.items.each do |item| %>
+<tr>
+    <td><%= item.name %></td>
+    <td><%= item.description %></td>
+    <td><%= link_to 'Edit', edit_restaurant_item_path(item.restaurant, item), :class => "btn btn-warning" %></td>
+    <td><%= link_to 'Delete', [item.restaurant, item],
+				:confirm => "Are you sure?",
+				:method => :delete, :class => "btn btn-danger" %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'Back', restaurants_path, :class => "btn btn-inverse" %>
+<%= link_to 'New Order Form', restaurant_orders_path(@restaurant), :method => :post, :class => "btn btn-success" %>
 
-<h2> Add new item </h2>
+<h3> Add a new item </h3>
 <%= render 'items/form' %>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+
